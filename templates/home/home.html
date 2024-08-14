@@ -3,6 +3,24 @@
 
 {% block content %}
 
+<style>
+	#waveform {
+    width: 100%;
+    /* max-width: 600px; */
+    margin: 10px auto;
+    background: transparent;
+}
+
+button {
+    /* display: block;
+    margin: 20px auto;
+    padding: 10px 20px; */
+    font-size: 16px;
+	color: #fff;
+}
+
+</style>
+
 <body id="body" class="tt-transition tt-boxed tt-smooth-scroll tt-magic-cursor">
 
 
@@ -544,8 +562,11 @@
 										{% for essay in recent_essays %}
 										<div class="tt-blog-post-content">
 
-											<h3>{{ essay.title }}</h3>
-											<small>By {{ essay.luminary_writer }}</small>
+											<h3 style="margin-bottom: 0;">
+												{{ essay.title }}
+											</h3>
+											<div id="waveform"></div>
+											<button id="playPauseBtn"><em>Read</em></button>
 
 
 											<p>{{ essay.content|safe }}</p>
@@ -724,7 +745,28 @@
 	</main>
 	<!-- End body inner -->
 
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/7.8.3/wavesurfer.min.js"
+    integrity="sha512-4ZT4pk8Hw8ofgCHWfDZOwRFeueV+1FlYM264zpUvn41d9jyE0xlnI2iQuUXt3+R1OoiyKWVt4UHUB95svzsKjg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script>
+		// Initialize Wavesurfer
+		const wavesurfer = WaveSurfer.create({
+			container: '#waveform',
+			waveColor: '#CE0808', // Customize the color of the waveform
+			progressColor: '#FFFFFF', // Customize the color of the progress
+			height: 50, // Height of the waveform
+			responsive: true,
+		});
 
+		// Load an audio file
+		wavesurfer.load('static/audio/mirrors.mp3'); // Replace with your audio file path
+
+		// Play/Pause button functionality
+		document.getElementById('playPauseBtn').addEventListener('click', function () {
+			wavesurfer.playPause();
+		});
+
+	</script>
 
 
 	{% endblock %}
