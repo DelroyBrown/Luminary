@@ -7035,29 +7035,7 @@ video.tt-bg-video {
 }
 /* ------------------------------------------------------------- * * Background noise 
 /* ------------------------------------------------------------- */
-.bg-noise {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: -1;
-    pointer-events: none;
-    overflow: hidden;
-}
-.bg-noise:before {
-    position: absolute;
-    content: '';
-    top: -10rem;
-    left: -10rem;
-    width: calc(100% + 20rem);
-    height: calc(100% + 20rem);
-    z-index: -1;
-    pointer-events: none;
-    background-image: url(../img/bg-noise.png);
-    background-position: 50%;
-    animation: BgNoise 1s steps(2) infinite;
-}
+
 @keyframes BgNoise {
     0% {
         transform: translate3d(0, 9rem, 0) 

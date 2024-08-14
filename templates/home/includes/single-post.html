@@ -1,0 +1,85 @@
+{% load static %}
+
+<article class="tt-blog-post anim-fadeinup">
+
+    {% for essay in recent_essays %}
+    <div class="tt-blog-post-content">
+
+        <h3 style="margin-bottom: 0;">
+            {{ essay.title }}
+        </h3>
+        <div id="waveform"></div>
+        <button id="playPauseBtn"><em>Read</em></button>
+
+
+        <p>{{ essay.content|safe }}</p>
+
+
+
+        <!-- Begin post image -->
+
+        <!-- End post image -->
+
+
+
+        <blockquote class="open-quote">
+            "<strong><em>{{ essay.blockquote|safe }}</em></strong>"
+            <footer>{{ essay.luminary_writer }}</footer>
+        </blockquote>
+
+
+
+        <br>
+
+
+
+
+
+        <!-- Begin tt-Embed (YouTube video) -->
+
+        <!-- End tt-Embed -->
+
+        <!-- Begin tt-Embed (Vimeo video) -->
+        <!-- <div class="tt-embed hide-cursor">
+                <iframe class="tt-embed-item" data-src="https://player.vimeo.com/video/78194687" allowfullscreen=""></iframe>
+            </div> -->
+        <!-- End tt-Embed -->
+
+    </div>
+    {% endfor %}
+
+
+    <!-- Begin blog post tags -->
+    <div class="tt-blog-post-tags">
+        <ul>
+            <li><span>Tags:</span></li>
+            <li><a href="blog-archive.html">#photography</a></li>
+            <li><a href="blog-archive.html">#travel</a></li>
+            <li><a href="blog-archive.html">#motion</a></li>
+        </ul>
+    </div>
+    <!-- End blog post tags -->
+
+    <!-- Begin blog post share (Note: for design purposes only!) 
+        =========================== 
+        * Use class "bss-fixed-bottom" to enable post share fixed bottom position (effect only on small screens!!!).
+        -->
+    <div class="tt-blog-post-share">
+        <div class="tt-bps-text">Share:</div>
+        <div class="social-buttons">
+            <ul>
+                <li><a href="#0" class="magnetic-item" rel="noopener"
+                        title="Share on Facebook"><i
+                            class="fab fa-facebook-f"></i></a></li>
+                <li><a href="#0" class="magnetic-item" rel="noopener"
+                        title="Share on Twitter"><i class="fab fa-twitter"></i></a>
+                </li>
+                <li><a href="#0" class="magnetic-item" rel="noopener"
+                        title="Share on Pinterest"><i
+                            class="fab fa-pinterest"></i></a></li>
+            </ul>
+        </div> <!-- /.social-buttons -->
+    </div>
+    <!-- End blog post share -->
+
+</article>

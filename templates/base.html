@@ -12,7 +12,51 @@
     <link rel="stylesheet" href="{% static 'css/lightgallery.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/helper.css' %}">
     <link rel="stylesheet" href="{% static 'css/theme.css' %}">
+
+    <style>
+        .bg-noise {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -1;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .bg-noise:before {
+            position: absolute;
+            content: '';
+            top: -10rem;
+            left: -10rem;
+            width: calc(100% + 20rem);
+            height: calc(100% + 20rem);
+            z-index: -1;
+            pointer-events: none;
+            background-image: url({% static 'images/bg-noise.png' %});
+            background-position: 50%;
+            animation: BgNoise 1s steps(2) infinite;
+        }
+    </style>
+
 </head>
+
+<div id="page-transition">
+    <div class="ptr-overlay"></div>
+    <div class="ptr-preloader">
+        <div class="ptr-prel-content">
+            <img src="assets/img/logo-light.png" class="ptr-prel-image tt-logo-light" alt="Logo">
+        </div>
+    </div>
+</div>
+
+<div id="magic-cursor">
+    <div id="ball"></div>
+</div>
+
+<div class="bg-noise"></div>
+
 
 {% block content %}
 

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Essay
+from .models import Essay, EssayCategory
 from tinymce.widgets import TinyMCE
 from django import forms
 
@@ -15,3 +15,4 @@ class EssayAdmin(admin.ModelAdmin):
     form = EssayAdminForm
 
 admin.site.register(Essay, EssayAdmin)
+admin.site.register(EssayCategory)
